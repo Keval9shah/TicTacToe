@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="400.0" maxWidth="380.0" minHeight="400.0" minWidth="380.0" prefHeight="400.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Text layoutX="70.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Want to play with Computer??">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Button fx:id="yes" layoutX="109.0" layoutY="72.0" maxHeight="35.0" maxWidth="68.0" minHeight="30.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButtonAction" pickOnBounds="false" prefHeight="30.0" prefWidth="54.0" text="Yes">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="no" layoutX="209.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="44.0" text="No">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane fx:id="frst" layoutX="70.0" layoutY="141.0" prefHeight="117.0" prefWidth="266.0" visible="false">
+         <children>
+            <Text layoutX="8.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Want Computer to go first??" wrappingWidth="249.33333333333326">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Button fx:id="frst_y" layoutX="41.0" layoutY="69.0" mnemonicParsing="false" onAction="#BA2" prefHeight="30.0" prefWidth="54.0" text="Yes">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="frst_n" layoutX="144.0" layoutY="69.0" mnemonicParsing="false" onAction="#BA2" prefHeight="30.0" prefWidth="44.0" text="No">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="np2" layoutX="82.0" layoutY="292.0" prefHeight="30.0" prefWidth="215.0" promptText="Name of the Player 2" visible="false" />
+      <TextField fx:id="np1" layoutX="82.0" layoutY="169.0" onKeyReleased="#enter_text" prefHeight="30.0" prefWidth="215.0" promptText="Name of the Player 1" visible="false" />
+      <Button fx:id="go" disable="true" layoutX="318.0" layoutY="360.0" mnemonicParsing="false" onAction="#BA2" prefHeight="25.0" prefWidth="44.0" text="Go" underline="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Text fx:id="player" fill="#151515" layoutX="18.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For" wrappingWidth="149.23955917358398">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="73.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" wrappingWidth="17.470096588134766" />
+      <ImageView fx:id="ochoice" fitHeight="36.0" fitWidth="36.0" layoutX="18.0" layoutY="360.0" onMouseClicked="#choice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@o.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="54.0" layoutX="103.0" layoutY="360.0" onMouseClicked="#choice" pickOnBounds="true" preserveRatio="true" fx:id="xchoice">
+         <image>
+            <Image url="@x.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
+</AnchorPane>
