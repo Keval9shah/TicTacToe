@@ -16,8 +16,9 @@ import javafx.scene.text.Text;
 
 public class Controller implements Initializable {
 
-    int cf = -1,l=1,xoro=-1;
-    String p1 = "", p2 = "Computer";
+    int l=1;
+    static int xoro=-1,cf = -1;
+    static String p1 = "", p2 = "Computer";
     int[] occupied = new int[9];
 
     @FXML
@@ -79,16 +80,16 @@ public class Controller implements Initializable {
 
     @FXML
     void GridPane(ActionEvent event) {
-
+        Image x = new Image(getClass().getResourceAsStream("x.png"));
+        ImageView xi = new ImageView(x);
+        xi.setFitHeight(105);
+        xi.setFitWidth(115);
+        Image o = new Image(getClass().getResourceAsStream("o.png"));
+        ImageView oi = new ImageView(o);
+        oi.setFitHeight(105);
+        oi.setFitWidth(115);
         if (event.getSource() == one) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[0] != 0) {
 
             } else {
@@ -118,14 +119,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == two) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[1] != 0) {
 
             } else {
@@ -148,14 +142,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == three) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[2] != 0) {
 
             } else {
@@ -178,14 +165,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == four) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[3] != 0) {
 
             } else {
@@ -208,14 +188,8 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == five) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(112);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
             oi.setFitWidth(112);
+            xi.setFitWidth(112);
             if (occupied[4] != 0) {
 
             } else {
@@ -238,14 +212,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == six) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[5] != 0) {
 
             } else {
@@ -268,14 +235,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == seven) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[6] != 0) {
 
             } else {
@@ -298,14 +258,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == eight) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[7] != 0) {
 
             } else {
@@ -328,14 +281,7 @@ public class Controller implements Initializable {
             }
         }
         else if (event.getSource() == nine) {
-            Image x = new Image(getClass().getResourceAsStream("x.png"));
-            ImageView xi = new ImageView(x);
-            xi.setFitHeight(105);
-            xi.setFitWidth(115);
-            Image o = new Image(getClass().getResourceAsStream("o.png"));
-            ImageView oi = new ImageView(o);
-            oi.setFitHeight(105);
-            oi.setFitWidth(115);
+
             if (occupied[8] != 0) {
 
             } else {
