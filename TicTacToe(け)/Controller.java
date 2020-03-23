@@ -14,11 +14,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class Controller implements Initializable {
+public class Controller<bs> implements Initializable {
 
-    int l=1;
-    static int xoro=-1,cf = -1;
-    static String p1 = "", p2 = "Computer";
+    int l = 1;
+    static int xoro = -1, c = -1,gover=0;
+    static char cf = 'n';
+    static String p1 = "Motu", p2 = "Patlu";
     int[] occupied = new int[9];
 
     @FXML
@@ -27,6 +28,8 @@ public class Controller implements Initializable {
     @FXML
     private Button yes, frst_y, frst_n, no, go, one, two, three, four, five, six, seven, eight, nine;
 
+    Button[] bs= new Button[]{one, two, three, four, five, six, seven, eight, nine};
+
     @FXML
     private AnchorPane frst, rootPane;
 
@@ -34,7 +37,7 @@ public class Controller implements Initializable {
     private TextField np1, np2;
 
     @FXML
-    private Text player;
+    private Text player, tf1, tf2;
 
     public Controller() {
     }
@@ -49,6 +52,7 @@ public class Controller implements Initializable {
             np1.setPromptText("Name of the Player");
             np1.setLayoutX(82);
             np1.setLayoutY(262);
+            c = 1;
         } else if (event.getSource() == no) {
             yes.setDisable(true);
             no.setDisable(true);
@@ -58,6 +62,7 @@ public class Controller implements Initializable {
             np1.setLayoutX(82);
             np2.setLayoutX(82);
             np2.setLayoutY(232);
+            c = 0;
         }
     }
 
@@ -66,13 +71,18 @@ public class Controller implements Initializable {
         if (ev.getSource() == frst_y) {
             frst_n.setDisable(true);
             frst_y.setDisable(true);
-            cf = 1;
+            cf = 'y';
         } else if (ev.getSource() == frst_n) {
             frst_n.setDisable(true);
             frst_y.setDisable(true);
-            cf = 0;
+            cf = 'n';
         } else if (ev.getSource() == go) {
             p1 = np1.getText();
+            if (c == 0) {
+                p2 = np2.getText();
+            } else if (c == 1) {
+                p2 = "Computer";
+            }
             AnchorPane pane = FXMLLoader.load(getClass().getResource("sampple.fxml"));
             rootPane.getChildren().setAll(pane);
         }
@@ -80,6 +90,7 @@ public class Controller implements Initializable {
 
     @FXML
     void GridPane(ActionEvent event) {
+        Check win = new Check();
         Image x = new Image(getClass().getResourceAsStream("x.png"));
         ImageView xi = new ImageView(x);
         xi.setFitHeight(105);
@@ -88,219 +99,279 @@ public class Controller implements Initializable {
         ImageView oi = new ImageView(o);
         oi.setFitHeight(105);
         oi.setFitWidth(115);
-        if (event.getSource() == one) {
+        if(gover==0) {
+            if (event.getSource() == one) {
 
-            if (occupied[0] != 0) {
+                if (occupied[0] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    System.out.println("l%2==1");
-                    if (xoro == 1) {
-                        System.out.println("l%2==1 & xoro==1");
-                        one.setGraphic(xi);
-                    } else {
-                        System.out.println(xoro);
-                        System.out.println("l%2==1 & xoro==0");
-                        one.setGraphic(oi);
-                    }
-                    occupied[0] = 1;
                 } else {
-                    System.out.println("l%2==0");
-                    if (xoro == 1) {
-                        System.out.println("l%2==0 & xoro==1");
-                        one.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            one.setGraphic(xi);
+                        } else {
+                            System.out.println(xoro);
+                            one.setGraphic(oi);
+                        }
+                        occupied[0] = 1;
+                        if (win.check(1, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        System.out.println("l%2==0 & xoro==0");
-                        one.setGraphic(xi);
+                        if (xoro == 1) {
+                            one.setGraphic(oi);
+                        } else {
+                            one.setGraphic(xi);
+                        }
+                        occupied[0] = 2;
+                        if (win.check(1, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[0] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == two) {
+            } else if (event.getSource() == two) {
 
-            if (occupied[1] != 0) {
+                if (occupied[1] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        two.setGraphic(xi);
-                    } else {
-                        two.setGraphic(oi);
-                    }
-                    occupied[1] = 1;
                 } else {
-                    if (xoro == 1) {
-                        two.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            two.setGraphic(xi);
+                        } else {
+                            two.setGraphic(oi);
+                        }
+                        occupied[1] = 1;
+                        if (win.check(2, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        two.setGraphic(xi);
+                        if (xoro == 1) {
+                            two.setGraphic(oi);
+                        } else {
+                            two.setGraphic(xi);
+                        }
+                        occupied[1] = 2;
+                        if (win.check(2, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[1] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == three) {
+            } else if (event.getSource() == three) {
 
-            if (occupied[2] != 0) {
+                if (occupied[2] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        three.setGraphic(xi);
-                    } else {
-                        three.setGraphic(oi);
-                    }
-                    occupied[2] = 1;
                 } else {
-                    if (xoro == 1) {
-                        three.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            three.setGraphic(xi);
+                        } else {
+                            three.setGraphic(oi);
+                        }
+                        occupied[2] = 1;
+                        if (win.check(3, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        three.setGraphic(xi);
+                        if (xoro == 1) {
+                            three.setGraphic(oi);
+                        } else {
+                            three.setGraphic(xi);
+                        }
+                        occupied[2] = 2;
+                        if (win.check(3, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[2] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == four) {
+            } else if (event.getSource() == four) {
 
-            if (occupied[3] != 0) {
+                if (occupied[3] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        four.setGraphic(xi);
-                    } else {
-                        four.setGraphic(oi);
-                    }
-                    occupied[3] = 1;
                 } else {
-                    if (xoro == 1) {
-                        four.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            four.setGraphic(xi);
+                        } else {
+                            four.setGraphic(oi);
+                        }
+                        occupied[3] = 1;
+                        if (win.check(4, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        four.setGraphic(xi);
+                        if (xoro == 1) {
+                            four.setGraphic(oi);
+                        } else {
+                            four.setGraphic(xi);
+                        }
+                        occupied[3] = 2;
+                        if (win.check(4, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[3] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == five) {
-            oi.setFitWidth(112);
-            xi.setFitWidth(112);
-            if (occupied[4] != 0) {
+            } else if (event.getSource() == five) {
+                oi.setFitWidth(112);
+                xi.setFitWidth(112);
+                if (occupied[4] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        five.setGraphic(xi);
-                    } else {
-                        five.setGraphic(oi);
-                    }
-                    occupied[4] = 1;
                 } else {
-                    if (xoro == 1) {
-                        five.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            five.setGraphic(xi);
+                        } else {
+                            five.setGraphic(oi);
+                        }
+                        occupied[4] = 1;
+                        if (win.check(5, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        five.setGraphic(xi);
+                        if (xoro == 1) {
+                            five.setGraphic(oi);
+                        } else {
+                            five.setGraphic(xi);
+                        }
+                        occupied[4] = 2;
+                        if (win.check(5, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[4] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == six) {
+            } else if (event.getSource() == six) {
 
-            if (occupied[5] != 0) {
+                if (occupied[5] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        six.setGraphic(xi);
-                    } else {
-                        six.setGraphic(oi);
-                    }
-                    occupied[5] = 1;
                 } else {
-                    if (xoro == 1) {
-                        six.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            six.setGraphic(xi);
+                        } else {
+                            six.setGraphic(oi);
+                        }
+                        occupied[5] = 1;
+                        if (win.check(6, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        six.setGraphic(xi);
+                        if (xoro == 1) {
+                            six.setGraphic(oi);
+                        } else {
+                            six.setGraphic(xi);
+                        }
+                        occupied[5] = 2;
+                        if (win.check(6, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[5] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == seven) {
+            } else if (event.getSource() == seven) {
 
-            if (occupied[6] != 0) {
+                if (occupied[6] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        seven.setGraphic(xi);
-                    } else {
-                        seven.setGraphic(oi);
-                    }
-                    occupied[6] = 1;
                 } else {
-                    if (xoro == 1) {
-                        seven.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            seven.setGraphic(xi);
+                        } else {
+                            seven.setGraphic(oi);
+                        }
+                        occupied[6] = 1;
+                        if (win.check(7, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        seven.setGraphic(xi);
+                        if (xoro == 1) {
+                            seven.setGraphic(oi);
+                        } else {
+                            seven.setGraphic(xi);
+                        }
+                        occupied[6] = 2;
+                        if (win.check(7, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[6] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == eight) {
+            } else if (event.getSource() == eight) {
 
-            if (occupied[7] != 0) {
+                if (occupied[7] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        eight.setGraphic(xi);
-                    } else {
-                        eight.setGraphic(oi);
-                    }
-                    occupied[7] = 1;
                 } else {
-                    if (xoro == 1) {
-                        eight.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            eight.setGraphic(xi);
+                        } else {
+                            eight.setGraphic(oi);
+                        }
+                        occupied[7] = 1;
+                        if (win.check(8, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        eight.setGraphic(xi);
+                        if (xoro == 1) {
+                            eight.setGraphic(oi);
+                        } else {
+                            eight.setGraphic(xi);
+                        }
+                        occupied[7] = 2;
+                        if (win.check(8, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[7] = 2;
+                    l++;
                 }
-                l++;
-            }
-        }
-        else if (event.getSource() == nine) {
+            } else if (event.getSource() == nine) {
 
-            if (occupied[8] != 0) {
+                if (occupied[8] != 0) {
 
-            } else {
-                if (l % 2 == 1) {
-                    if (xoro == 1) {
-                        nine.setGraphic(xi);
-                    } else {
-                        nine.setGraphic(oi);
-                    }
-                    occupied[8] = 1;
                 } else {
-                    if (xoro == 1) {
-                        nine.setGraphic(oi);
+                    if (l % 2 == 1) {
+                        if (xoro == 1) {
+                            nine.setGraphic(xi);
+                        } else {
+                            nine.setGraphic(oi);
+                        }
+                        occupied[8] = 1;
+                        if (win.check(9, occupied)) {
+                            tf2.setText(p1 + " WON!!");
+                            gover=1;
+                        }
                     } else {
-                        nine.setGraphic(xi);
+                        if (xoro == 1) {
+                            nine.setGraphic(oi);
+                        } else {
+                            nine.setGraphic(xi);
+                        }
+                        occupied[8] = 2;
+                        if (win.check(9, occupied)) {
+                            tf2.setText(p2 + " WON!!");
+                            gover=1;
+                        }
                     }
-                    occupied[8] = 2;
+                    l++;
                 }
-                l++;
             }
         }
     }
@@ -313,15 +384,10 @@ public class Controller implements Initializable {
     public void choice(javafx.scene.input.MouseEvent mouseEvent) {
         if (mouseEvent.getSource() == ochoice) {
             xoro = 0;
-            System.out.println("xoro==0");
             player.setText("For " + np1.getText() + " O");
-            System.out.println(p1);
         } else {
-            xoro=1;
-            System.out.println("xoro==1");
-            System.out.println(xoro);
+            xoro = 1;
             player.setText("For " + np1.getText() + " X");
-            System.out.println(p1);
         }
         go.setDisable(false);
 
