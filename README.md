@@ -10,6 +10,9 @@ xoro is changed back to -1(initialized value)
 
 
 WHY???
+
 & How to fix this???
+
 How to pass value from one fxml anchorpane to another??
+
 
