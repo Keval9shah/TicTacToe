@@ -1,18 +1,10 @@
 # TicTacToe
 GUI(JavaFX) App
 
+Help me make this!!
 
-in fxml(sample.fxml) in first anchorpane there are two buttons to
-choose from X or O. & when button is pressed a integer
-variable named "xoro" is given value 1 or 0 respectively
-but as soon as new fxml(sampple.fxml) is loaded the value of
-xoro is changed back to -1(initialized value)
+I also plan to make java(terminal) & Javafx apps 
+for chess & Random Walk(if U don't know what random walk is
+then i recommend searching it)
 
-
-WHY???
-
-& How to fix this???
-
-How to pass value from one fxml anchorpane to another??
-
-
+Help me make ne things!!
