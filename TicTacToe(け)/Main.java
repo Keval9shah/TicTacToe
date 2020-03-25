@@ -18,6 +18,7 @@ public class Main extends Application {
         primaryStage.setY(70);
         primaryStage.show();
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("gic.png")));
+
     }
 
 

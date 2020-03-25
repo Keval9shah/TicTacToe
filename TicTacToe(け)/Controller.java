@@ -80,7 +80,13 @@ public class Controller implements Initializable {
             if (c == 0) {
                 p2 = np2.getText();
             } else if (c == 1) {
-                p2 = "Computer";
+                if(cf=='y'){
+                    p1="Computer";
+                    p2=np2.getText();
+                }
+                if(cf=='n'){
+                    p2 = "Computer";
+                }
             }
             AnchorPane pane = FXMLLoader.load(getClass().getResource("sampple.fxml"));
             rootPane.getChildren().setAll(pane);
@@ -447,9 +453,15 @@ public class Controller implements Initializable {
     public void choice(javafx.scene.input.MouseEvent mouseEvent) {
         if (mouseEvent.getSource() == ochoice) {
             xoro = 0;
+            if(cf=='y'){
+                xoro=1;
+            }
             player.setText("For " + np1.getText() + " O");
         } else {
             xoro = 1;
+            if(cf=='y'){
+                xoro=0;
+            }
             player.setText("For " + np1.getText() + " X");
         }
         go.setDisable(false);

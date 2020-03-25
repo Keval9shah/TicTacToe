@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -27,15 +28,42 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="one" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" />
-            <Button fx:id="two" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="1" />
-            <Button fx:id="three" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="2" />
-            <Button fx:id="seven" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.rowIndex="2" />
-            <Button fx:id="four" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.rowIndex="1" />
-            <Button fx:id="six" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="five" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="111.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="eight" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="nine" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="one" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="two" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="three" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="seven" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="four" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="six" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="five" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="111.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="eight" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="nine" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#GridPane" prefHeight="114.0" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </GridPane>
       <Text fx:id="tf2" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="380.0000000000001">
@@ -43,6 +71,9 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <Button fx:id="again" layoutX="325.0" layoutY="11.0" mnemonicParsing="false" onAction="#set0" text="Again" />
+      <Button fx:id="again" layoutX="325.0" layoutY="11.0" mnemonicParsing="false" onAction="#set0" text="Again">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>
