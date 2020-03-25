@@ -2,6 +2,7 @@ package sample;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,21 +15,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class Controller<bs> implements Initializable {
+public class Controller implements Initializable {
 
     int l = 1;
-    static int xoro = -1, c = -1,gover=0;
+    static int xoro = -1, c = -1, gover = 0;
     static char cf = 'n';
     static String p1 = "Motu", p2 = "Patlu";
-    int[] occupied = new int[9];
+    static int[] occupied = new int[9];
 
     @FXML
     private ImageView ochoice;
 
     @FXML
     private Button yes, frst_y, frst_n, no, go, one, two, three, four, five, six, seven, eight, nine;
-
-    Button[] bs= new Button[]{one, two, three, four, five, six, seven, eight, nine};
 
     @FXML
     private AnchorPane frst, rootPane;
@@ -90,6 +89,8 @@ public class Controller<bs> implements Initializable {
 
     @FXML
     void GridPane(ActionEvent event) {
+        Put cin = new Put();
+        Button[] bs = new Button[] { one, two, three, four, five, six, seven, eight, nine };
         Check win = new Check();
         Image x = new Image(getClass().getResourceAsStream("x.png"));
         ImageView xi = new ImageView(x);
@@ -99,7 +100,7 @@ public class Controller<bs> implements Initializable {
         ImageView oi = new ImageView(o);
         oi.setFitHeight(105);
         oi.setFitWidth(115);
-        if(gover==0) {
+        if (gover == 0) {
             if (event.getSource() == one) {
 
                 if (occupied[0] != 0) {
@@ -109,13 +110,16 @@ public class Controller<bs> implements Initializable {
                         if (xoro == 1) {
                             one.setGraphic(xi);
                         } else {
-                            System.out.println(xoro);
                             one.setGraphic(oi);
                         }
                         occupied[0] = 1;
                         if (win.check(1, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -126,10 +130,13 @@ public class Controller<bs> implements Initializable {
                         occupied[0] = 2;
                         if (win.check(1, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == two) {
 
@@ -145,7 +152,11 @@ public class Controller<bs> implements Initializable {
                         occupied[1] = 1;
                         if (win.check(2, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -156,10 +167,13 @@ public class Controller<bs> implements Initializable {
                         occupied[1] = 2;
                         if (win.check(2, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == three) {
 
@@ -175,7 +189,11 @@ public class Controller<bs> implements Initializable {
                         occupied[2] = 1;
                         if (win.check(3, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -186,10 +204,13 @@ public class Controller<bs> implements Initializable {
                         occupied[2] = 2;
                         if (win.check(3, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == four) {
 
@@ -205,7 +226,11 @@ public class Controller<bs> implements Initializable {
                         occupied[3] = 1;
                         if (win.check(4, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -216,10 +241,13 @@ public class Controller<bs> implements Initializable {
                         occupied[3] = 2;
                         if (win.check(4, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == five) {
                 oi.setFitWidth(112);
@@ -236,7 +264,11 @@ public class Controller<bs> implements Initializable {
                         occupied[4] = 1;
                         if (win.check(5, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -247,10 +279,13 @@ public class Controller<bs> implements Initializable {
                         occupied[4] = 2;
                         if (win.check(5, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == six) {
 
@@ -266,7 +301,11 @@ public class Controller<bs> implements Initializable {
                         occupied[5] = 1;
                         if (win.check(6, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -277,10 +316,13 @@ public class Controller<bs> implements Initializable {
                         occupied[5] = 2;
                         if (win.check(6, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == seven) {
 
@@ -296,7 +338,11 @@ public class Controller<bs> implements Initializable {
                         occupied[6] = 1;
                         if (win.check(7, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -307,10 +353,13 @@ public class Controller<bs> implements Initializable {
                         occupied[6] = 2;
                         if (win.check(7, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == eight) {
 
@@ -326,7 +375,11 @@ public class Controller<bs> implements Initializable {
                         occupied[7] = 1;
                         if (win.check(8, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -337,10 +390,13 @@ public class Controller<bs> implements Initializable {
                         occupied[7] = 2;
                         if (win.check(8, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             } else if (event.getSource() == nine) {
 
@@ -356,7 +412,11 @@ public class Controller<bs> implements Initializable {
                         occupied[8] = 1;
                         if (win.check(9, occupied)) {
                             tf2.setText(p1 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'n') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     } else {
                         if (xoro == 1) {
@@ -367,10 +427,13 @@ public class Controller<bs> implements Initializable {
                         occupied[8] = 2;
                         if (win.check(9, occupied)) {
                             tf2.setText(p2 + " WON!!");
-                            gover=1;
+                            gover = 1;
+                        }
+                        l++;
+                        if (c == 1 && cf == 'y') {
+                            bs[cin.put(occupied, cf) - 1].fire();
                         }
                     }
-                    l++;
                 }
             }
         }
@@ -396,5 +459,22 @@ public class Controller<bs> implements Initializable {
     @FXML
     public void enter_text() {
         player.setText("For " + np1.getText());
+    }
+
+    @FXML
+    void set0(){
+        Arrays.fill(occupied,0);
+        one.setGraphic(null);
+        two.setGraphic(null);
+        three.setGraphic(null);
+        four.setGraphic(null);
+        five.setGraphic(null);
+        six.setGraphic(null);
+        seven.setGraphic(null);
+        eight.setGraphic(null);
+        nine.setGraphic(null);
+        l=1;
+        gover=0;
+        tf2.setText("Playing Again!!");
     }
 }
