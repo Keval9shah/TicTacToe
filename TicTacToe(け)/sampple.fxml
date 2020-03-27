@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="400.0" maxWidth="386.0" minHeight="400.0" minWidth="379.0" prefHeight="400.0" prefWidth="383.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="400.0" maxWidth="386.0" minHeight="400.0" minWidth="379.0" prefHeight="400.0" prefWidth="383.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller2">
    <children>
-      <Text fx:id="tf1" layoutX="7.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="318.0000000000001">
+      <Text fx:id="tf1" layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="302.6666567325593">
          <font>
             <Font size="22.0" />
          </font>
@@ -66,7 +66,7 @@
                </cursor></Button>
          </children>
       </GridPane>
-      <Text fx:id="tf2" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="380.0000000000001">
+      <Text fx:id="tf2" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="362.66665625572216">
          <font>
             <Font size="22.0" />
          </font>
