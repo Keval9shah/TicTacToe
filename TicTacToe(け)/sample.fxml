@@ -16,7 +16,7 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Button fx:id="yes" layoutX="109.0" layoutY="72.0" maxHeight="35.0" maxWidth="68.0" minHeight="30.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButtonAction" pickOnBounds="false" prefHeight="30.0" prefWidth="54.0" text="Yes">
+      <Button fx:id="yes" layoutX="109.0" layoutY="72.0" maxHeight="35.0" maxWidth="68.0" minHeight="30.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleButtonAction" pickOnBounds="false" prefHeight="30.0" prefWidth="54.0" styleClass="Btn" stylesheets="@Stl.css" text="Yes">
          <padding>
             <Insets left="5.0" right="5.0" />
          </padding>
@@ -27,7 +27,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="no" layoutX="209.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="44.0" text="No">
+      <Button fx:id="no" layoutX="209.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="44.0" styleClass="Btn" stylesheets="@Stl.css" text="No">
          <padding>
             <Insets left="5.0" right="5.0" />
          </padding>
@@ -56,7 +56,7 @@
       </AnchorPane>
       <TextField fx:id="np2" layoutX="82.0" layoutY="292.0" prefHeight="30.0" prefWidth="215.0" promptText="Name of the Player 2" visible="false" />
       <TextField fx:id="np1" layoutX="82.0" layoutY="169.0" onKeyReleased="#enter_text" prefHeight="30.0" prefWidth="215.0" promptText="Name of the Player 1" visible="false" />
-      <Button fx:id="go" disable="true" layoutX="318.0" layoutY="360.0" mnemonicParsing="false" onAction="#BA2" prefHeight="25.0" prefWidth="44.0" text="Go" underline="true">
+      <Button fx:id="go" disable="true" layoutX="318.0" layoutY="360.0" mnemonicParsing="false" onAction="#BA2" prefHeight="25.0" prefWidth="44.0" styleClass="Btn" stylesheets="@Stl.css" text="Go" underline="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
