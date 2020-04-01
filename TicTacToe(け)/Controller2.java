@@ -380,7 +380,7 @@ public class Controller2 implements Initializable {
                 }
             }
         }
-        if(l>9){
+        if(l>9 && gover == 0){
             tf2.setText("Draw!!");
         }
     }
