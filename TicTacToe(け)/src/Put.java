@@ -1,4 +1,3 @@
-package sample;
 
 //93 I m forced to use if rather than else if
 /**
@@ -33,7 +32,8 @@ public class Put {
                     } else if (i - 3 >= 0 && o[i - 3] == 0) {
                         return i - 2;
                     }
-                } if (i + 6 < 9 && o[i + 6] == x && o[i + 3] == 0) {
+                }
+                if (i + 6 < 9 && o[i + 6] == x && o[i + 3] == 0) {
                     return i + 4;
                 }
                 // Cross
@@ -78,7 +78,8 @@ public class Put {
                     } else if (i - 3 >= 0 && o[i - 3] == 0) {
                         return i - 2;
                     }
-                } if (i + 6 < 9 && o[i + 6] == 3 - x && o[i + 3] == 0) {
+                }
+                if (i + 6 < 9 && o[i + 6] == 3 - x && o[i + 3] == 0) {
                     return i + 4;
                 }
                 // Cross

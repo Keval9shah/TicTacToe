@@ -1,4 +1,3 @@
-package sample;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -25,7 +24,7 @@ public class Controller2 implements Initializable {
     char cf = xz.cf;
 
     @FXML
-    private Button one,two,three,four,five,six,seven,eight,nine;
+    private Button one, two, three, four, five, six, seven, eight, nine;
 
     @FXML
     private Text tf1, tf2;
@@ -33,7 +32,7 @@ public class Controller2 implements Initializable {
     @FXML
     void GridPane(ActionEvent event) {
         Put cin = new Put();
-        Button[] bs = new Button[]{one, two, three, four, five, six, seven, eight, nine};
+        Button[] bs = new Button[] { one, two, three, four, five, six, seven, eight, nine };
         Check win = new Check();
         Image x = new Image(getClass().getResourceAsStream("x.png"));
         ImageView xi = new ImageView(x);
@@ -380,14 +379,14 @@ public class Controller2 implements Initializable {
                 }
             }
         }
-        if(l>9 && gover == 0){
+        if (l > 9 && gover == 0) {
             tf2.setText("Draw!!");
         }
     }
 
     @FXML
-    void set0(){
-        Arrays.fill(occupied,0);
+    void set0() {
+        Arrays.fill(occupied, 0);
         one.setGraphic(null);
         two.setGraphic(null);
         three.setGraphic(null);
@@ -397,12 +396,12 @@ public class Controller2 implements Initializable {
         seven.setGraphic(null);
         eight.setGraphic(null);
         nine.setGraphic(null);
-        l=1;
-        gover=0;
+        l = 1;
+        gover = 0;
         tf2.setText("Playing Again!!");
         Put cin = new Put();
-        Button[] bs = new Button[]{one, two, three, four, five, six, seven, eight, nine};
-        if(c==1 && cf=='y'){
+        Button[] bs = new Button[] { one, two, three, four, five, six, seven, eight, nine };
+        if (c == 1 && cf == 'y') {
             bs[cin.put(occupied, cf) - 1].fire();
         }
     }
@@ -411,9 +410,9 @@ public class Controller2 implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         Put cin = new Put();
-        Button[] bs = new Button[]{one, two, three, four, five, six, seven, eight, nine};
-        tf1.setText(p1+"  Vs  "+p2);
-        if(c==1 && cf=='y'){
+        Button[] bs = new Button[] { one, two, three, four, five, six, seven, eight, nine };
+        tf1.setText(p1 + "  Vs  " + p2);
+        if (c == 1 && cf == 'y') {
             bs[cin.put(occupied, cf) - 1].fire();
         }
     }
